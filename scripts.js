@@ -15,6 +15,9 @@ function getHumanChoice(){
 }
 console.log(getHumanChoice());
 
+let humanScore = 0;
+let computerScore = 0;
+
 
 // Creation of 2 variables to keep track of the current score, starting with the value 0
 // Function that takes the choice of the computer and the player, and defines who wins
