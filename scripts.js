@@ -7,9 +7,15 @@ function getComputerChoice(){
     return choices[computerChoice];
 }
 
-console.log(getComputerChoice());
 
 // Function that receive the imput from the player, and store it in a variable
+
+function getHumanChoice(){
+    let humanChoice = prompt("Your choice! Make it right!").toLowerCase();
+}
+console.log(getHumanChoice());
+
+
 // Creation of 2 variables to keep track of the current score, starting with the value 0
 // Function that takes the choice of the computer and the player, and defines who wins
 // Creating the logic of the rules of the game
