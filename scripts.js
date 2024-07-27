@@ -7,12 +7,13 @@ function getComputerChoice(){
     return choices[computerChoice];
 }
 
+
 // Function that receive the imput from the player, and store it in a variable
 
 function getHumanChoice(){
     let humanChoice = prompt("Your choice! Make it right!").toLowerCase();
+    return humanChoice;
 }
-console.log(getHumanChoice());
 
 // Creation of 2 variables to keep track of the current score, starting with the value 0
 
@@ -22,21 +23,36 @@ let computerScore = 0;
 // Function that takes the choice of the computer and the player, and defines who wins
 // Creating the logic of the rules of the game
 
-function playRound(getComputerChoice(), getComputerChoice()){
+function playRound(getComputerChoice, getHumanChoice){
 
-    if (getComputerChoice() == getHumanChoice()){
-        let result = "It's a draw! " + getComputerChoice() + " it's the same of " + getHumanChoice;
+    let humanChoice = getHumanChoice;
+    let computerChoice = getComputerChoice;
+  
+    if (computerChoice === humanChoice){
+        let result = "It's a draw! " + computerChoice + " it's the same of " + humanChoice;
+        return result;
+        
     }
 
-    else if (getComputerChoice("rock") && getHumanChoice("scissors") || getComputerChoice("scissors") && getHumanChoice("paper") || getComputerChoice("paper") && getHumanChoice("rock")){
-        computerScore = computerScore ++;
+    else if (computerChoice === "rock" && humanChoice === "scissors" ||
+         computerChoice === "scissors" && humanChoice === "paper" ||
+          computerChoice === "paper" && humanChoice === "rock"){
+
+        computerScore++;
+        let result = computerChoice + " beats " + humanChoice + ", You loose!";
+        return result;
+    
     }
     else{
-        humanScore = humanScore ++;
-    }
-
+        humanScore++;
+        let result = humanChoice + " wins " + computerChoice + ", You win!";
+        return result;
+    } 
 }
-
+    
+    console.log(playRound(getComputerChoice(),getHumanChoice()));
+    console.log("Human score: " + humanScore);
+    console.log("Computer score: " + computerScore);
 
 // Annouce the winner of the round
 // Adding the score to the variables created to do so
