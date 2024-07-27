@@ -25,8 +25,8 @@ let computerScore = 0;
 
 function playRound(getComputerChoice, getHumanChoice){
 
-    let humanChoice = getHumanChoice;
-    let computerChoice = getComputerChoice;
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
   
     if (computerChoice === humanChoice){
 // Annouce the winner of the round
@@ -53,10 +53,13 @@ function playRound(getComputerChoice, getHumanChoice){
     } 
 }
 // Function that "plays" 5 times the rounds, using loops
+// After the 5 rounds, calculate who win with the help of the scores stored
+// Message showing who wins, and end of game.
 function playGame(){
+
     for (let numberRounds = 1; numberRounds <= 5; numberRounds++){
         console.log("Rounds:" + numberRounds);
-        console.log(playRound(getComputerChoice(), getHumanChoice()));
+        console.log(playRound(getComputerChoice, getHumanChoice));
         console.log("Human score: " + humanScore);
         console.log("Computer score: " + computerScore);
     }
@@ -75,5 +78,3 @@ function playGame(){
 
 
 
-// After the 5 rounds, calculate who win with the help of the scores stored
-// Message showing who wins, and end of game.
