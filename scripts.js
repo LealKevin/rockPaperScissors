@@ -29,33 +29,51 @@ function playRound(getComputerChoice, getHumanChoice){
     let computerChoice = getComputerChoice;
   
     if (computerChoice === humanChoice){
+// Annouce the winner of the round
         let result = "It's a draw! " + computerChoice + " it's the same of " + humanChoice;
         return result;
-        
     }
 
     else if (computerChoice === "rock" && humanChoice === "scissors" ||
          computerChoice === "scissors" && humanChoice === "paper" ||
           computerChoice === "paper" && humanChoice === "rock"){
-
+// Adding the score to the variables created to do so
         computerScore++;
+// Annouce the winner of the round
         let result = computerChoice + " beats " + humanChoice + ", You loose!";
         return result;
     
     }
     else{
+// Adding the score to the variables created to do so
         humanScore++;
+// Annouce the winner of the round
         let result = humanChoice + " wins " + computerChoice + ", You win!";
         return result;
     } 
 }
-    
-    console.log(playRound(getComputerChoice(),getHumanChoice()));
-    console.log("Human score: " + humanScore);
-    console.log("Computer score: " + computerScore);
-
-// Annouce the winner of the round
-// Adding the score to the variables created to do so
 // Function that "plays" 5 times the rounds, using loops
+function playGame(){
+    for (let numberRounds = 1; numberRounds <= 5; numberRounds++){
+        console.log("Rounds:" + numberRounds);
+        console.log(playRound(getComputerChoice(), getHumanChoice()));
+        console.log("Human score: " + humanScore);
+        console.log("Computer score: " + computerScore);
+    }
+    if (humanScore > computerScore){
+        console.log("You win congratz!")
+    }
+    else{
+        console.log("You loose, sorry!")
+    }
+}
+ playGame();
+
+
+    
+
+
+
+
 // After the 5 rounds, calculate who win with the help of the scores stored
 // Message showing who wins, and end of game.
